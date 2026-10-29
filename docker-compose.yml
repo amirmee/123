@@ -1,0 +1,8 @@
+services:
+  nr-app:
+    build: .
+    image: nr-app
+    container_name: nr-app
+    ports:
+      - "8080:80"
+    restart: unless-stopped

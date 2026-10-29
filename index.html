@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Ночные ритмы и Атмосфера</title>
+    <script>
+      // Тема и шоу до первой отрисовки, чтобы не мигало
+      try {
+        var t = JSON.parse(localStorage.getItem('nrat_theme') || 'null');
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+        var m = location.hash.match(/^#(nr|at)/);
+        var s = m ? m[1] : JSON.parse(localStorage.getItem('nrat_show') || '"nr"');
+        document.documentElement.dataset.show = s === 'at' ? 'at' : 'nr';
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
